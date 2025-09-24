@@ -5,6 +5,36 @@ import plotly.express as px
 import os
 from datetime import datetime, date, time
 
+#------sidebar para layout
+st.sidebar.title("Layout")
+tipo_fundo = st.sidebar.selectbox("Tipo de fundo", ["Cor sólida", "Imagem (URL)"])
+if tipo_fundo == "Cor sólida":
+    cor_fundo = st.sidebar.color_picker("Escolha a cor do fundo", "#ffffff")
+    fundo_css = f"background-color: {cor_fundo};"
+else:
+    url_imagem = st.sidebar.text_input("URL da imagem de fundo")
+    if url_imagem:
+        fundo_css = f"""
+        background-image: url('{url_imagem}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        """
+    else:
+        fundo_css = ""
+st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        {fundo_css}
+        transition: background 0.5s ease;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
 # --- Funções de Banco de Dados ---
 def conectar_bd():
     conn = sqlite3.connect("tarefas.db")
