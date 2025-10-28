@@ -35,9 +35,9 @@ O EduTask é uma aplicação web completa (Full-Stack), utilizando tecnologias m
 | Categoria | Tecnologia | Objetivo |
 | :--- | :--- | :--- |
 | **Frontend**                 | **[React 18 / Vite ]**                  | Construção da Interface de Usuário (UI) limpa e responsiva.                    |
-| **Linguagem**                | **TypeScript**                          | Linguagem principal para o desenvolvimento do Frontend e Backend.              |
+| **Linguagem**                | **[TypeScript]**                          | Linguagem principal para o desenvolvimento do Frontend e Backend.              |
 | **Backend / Banco de Dados** | **[Supabase (Auth + Postgres)]**        | Armazenamento e manipulação persistente de tarefas, listas e dados de usuário. |
-| **Estilização**              | **Tailwind CSS, Radix UI (Components)** | Implementação do Design System minimalista e elegante (Estilo Apple).          |
+| **Estilização**              | **[Tailwind CSS, Radix UI (Components)]** | Implementação do Design System minimalista e elegante (Estilo Apple).          |
 
 ## 💻 Configuração para Desenvolvimento
 
