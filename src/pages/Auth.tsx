@@ -98,19 +98,21 @@ export default function Auth() {
         });
       }
     } catch (error: any) {
-      let errorMessage = "Verifique seu email e senha.";
-      
-      if (error.message?.includes("Invalid login credentials")) {
-        errorMessage = "Email ou senha incorretos. Verifique suas credenciais.";
-      } else if (error.message?.includes("Email not confirmed")) {
-        errorMessage = "Email não confirmado. Verifique sua caixa de entrada.";
-      }
-      
-      toast({
-        title: "Erro ao fazer login",
-        description: errorMessage,
-        variant: "destructive",
-      });
+        let errorMessage = "Verifique seu email e senha.";
+
+        if (error.message?.includes("Invalid login credentials")) {
+          errorMessage = "Email ou senha incorretos. Verifique suas credenciais.";
+        } else if (error.message?.includes("Email not confirmed")) {
+          errorMessage = "Email não confirmado. Verifique sua caixa de entrada.";
+        } else if (error.message) {
+          errorMessage = `${errorMessage} (${error.message})`;
+        }
+
+        toast({
+          title: "Erro ao fazer login",
+          description: errorMessage,
+          variant: "destructive",
+        });
     } finally {
       setLoading(false);
     }

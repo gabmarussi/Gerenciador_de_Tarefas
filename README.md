@@ -34,11 +34,10 @@ O EduTask é uma aplicação web completa (Full-Stack), utilizando tecnologias m
 
 | Categoria | Tecnologia | Objetivo |
 | :--- | :--- | :--- |
-| **Frontend** | **[React / Vue / Angular]** | Construção da Interface de Usuário (UI) limpa e responsiva. |
-| **Linguagem** | **JavaScript / TypeScript** | Linguagem principal para o desenvolvimento do Frontend e Backend. |
-| **Backend** | **[Node.js / Express]** | Desenvolvimento da API RESTful para manipulação de dados. |
-| **Banco de Dados** | **[MongoDB / PostgreSQL]** | Armazenamento persistente de tarefas, listas e dados de usuário. |
-| **Estilização** | **CSS3 / Styled Components** | Implementação do Design System minimalista e elegante (Estilo Apple). |
+| **Frontend**                 | **[React 18 / Vite ]**                  | Construção da Interface de Usuário (UI) limpa e responsiva.                    |
+| **Linguagem**                | **TypeScript**                          | Linguagem principal para o desenvolvimento do Frontend e Backend.              |
+| **Backend / Banco de Dados** | **[Supabase (Auth + Postgres)]**        | Armazenamento e manipulação persistente de tarefas, listas e dados de usuário. |
+| **Estilização**              | **Tailwind CSS, Radix UI (Components)** | Implementação do Design System minimalista e elegante (Estilo Apple).          |
 
 ## 💻 Configuração para Desenvolvimento
 
@@ -46,26 +45,37 @@ Para rodar e contribuir com o desenvolvimento do EduTask:
 
 ### Pré-requisitos
 
-* **Node.js (LTS)**: Necessário para executar o ambiente JavaScript.
-* **npm** (ou yarn): Gerenciador de pacotes.
-* **Git**: Sistema de controle de versão.
-* **[Tecnologia DB]**: Ex: Docker para rodar o contêiner do MongoDB/PostgreSQL localmente.
+- **Node.js (LTS)**: Necessário para executar o ambiente JavaScript.
+- **npm** (ou yarn): Gerenciador de pacotes.
+- **Supbase**: Necessário para criação de banco de dados e backend.
 
 ### Passos de Execução
 
-1.  **Clonar o Repositório:**
-    ```sh
-    git clone [https://github.com/gabmarussi/GerenciadorDeTarefas.git](https://github.com/gabmarussi/GerenciadorDeTarefas.git)
-    cd GerenciadorDeTarefas
-    ```
-2.  **Instalar Dependências:**
-    ```sh
-    npm install i
+1. **Instalar dependências**
 
-    npm run build
-    ```
-3.  **Para Iniciar:**
-    ```sh
-    npm run dev
-    ```
-    A aplicação estará acessível no endereço `http://localhost:[PORTA]`.
+```bash
+npm install
+```
+
+2. **Criar um arquivo `.env` com as variáveis abaixo:**
+
+```
+VITE_SUPABASE_URL=https://<your-project>.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=<anon-or-publishable-key>
+```
+
+3. **Rodar em modo desenvolvimento**
+
+```bash
+npm run dev
+```
+
+4. **Build para produção**
+
+```bash
+npm run build
+```
+
+Notas:
+
+- As migrations estão em `supabase/migrations/`. Aplique-as via Supabase SQL Editor ou `supabase` CLI para criar as tabelas `profiles`, `lists` e `tasks` e as policies associadas.

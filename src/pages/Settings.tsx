@@ -33,20 +33,35 @@ export default function Settings() {
         return;
       }
 
-      const { data, error } = await supabaseQuery
+      const res = await supabaseQuery
         .from("profiles")
         .select("*")
-        .eq("id", user.id)
-        .single();
+        .eq("id", user.id);
 
-      if (error) throw error;
+      if (res.error) throw res.error;
 
-      if (data) {
-        setProfile({
-          email: data.email || "",
-          full_name: data.full_name || "",
-        });
+  const rows = Array.isArray(res.data) ? res.data : [res.data];
+  if (!rows || rows.length === 0 || !rows[0]) {
+        try {
+          const { data: insertData, error: insertError } = await supabaseQuery
+            .from('profiles')
+            .insert({ id: user.id, email: user.email, full_name: '' });
+
+          if (insertError) return;
+
+          const created = Array.isArray(insertData) ? insertData[0] : insertData;
+          setProfile({ email: created.email || '', full_name: created.full_name || '' });
+          return;
+        } catch {
+          return;
+        }
       }
+
+      const data = rows[0];
+      setProfile({
+        email: data.email || "",
+        full_name: data.full_name || "",
+      });
     } catch (error: any) {
       toast({
         title: "Erro ao carregar perfil",
