@@ -13,7 +13,7 @@
 ## Descrição
 
 <p align="center">
-<img width="510" height="510" alt="Image" src="https://github.com/user-attachments/assets/8da42290-7d89-4d03-a216-e667981ddae4"/>
+![Página Inicial](public/Home.png)
 </p>
 
 O projeto **EduTask** é um sistema desenvolvido por nós alunos da FECAP por meio da matéria Engenharia de Software e Arquitetura de Sistemas com o objetivo de **solucionar um problema de gestão de tempo e organização** na comunidade acadêmica, desenvolvendo uma ferramenta educacional focada em produtividade. Esta aplicação foi criada para ser uma **ferramenta web** de gerenciamento de tarefas que beneficiará **professores e orientadores** ao facilitar e organizar as tarefas do dia a dia na profissão, com uma interface elegante e intuitiva (inspirada no estilo Apple Reminders).
